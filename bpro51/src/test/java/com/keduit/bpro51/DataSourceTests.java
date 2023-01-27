@@ -16,18 +16,17 @@ import lombok.extern.log4j.Log4j2;
 @SpringBootTest
 @Log4j2
 public class DataSourceTests {
-
+	
 	@Autowired
 	private DataSource dataSource;
 	
 	@Test
-	public void testConnection() throws SQLException{
+	public void testConnection() throws SQLException {
 		
 		@Cleanup
 		Connection con = dataSource.getConnection();
 		
-		log.info("********** con *********"+con);
+		log.info("con---" + con);
 		Assertions.assertNotNull(con);
 	}
-	
 }

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="DataSourceTests.testConnection" project="bpro51" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.keduit.bpro51.DataSourceTests" time="0.331" displayname="DataSourceTests" uniqueid="[engine:junit-jupiter]/[class:com.keduit.bpro51.DataSourceTests]">
-    <testcase name="testConnection" classname="com.keduit.bpro51.DataSourceTests" time="0.33" displayname="testConnection()" uniqueid="[engine:junit-jupiter]/[class:com.keduit.bpro51.DataSourceTests]/[method:testConnection()]"/>
-  </testsuite>
-</testrun>
