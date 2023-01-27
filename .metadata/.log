@@ -8580,3 +8580,63 @@ Binding(CTRL+SHIFT+C,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.textEditorScope,,,system)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:19.871
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:19.876
+!MESSAGE classpath=98 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:19.879
+!MESSAGE buffering callback sts4.classpath.iNcxEWKB bpro52 false 98
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:19.879
+!MESSAGE executing callback sts4.classpath.iNcxEWKB 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:19.908
+!MESSAGE executing callback sts4.classpath.iNcxEWKB SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:21.854
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:21.858
+!MESSAGE classpath=98 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:21.862
+!MESSAGE buffering callback sts4.classpath.iNcxEWKB bpro52 false 98
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:21.862
+!MESSAGE executing callback sts4.classpath.iNcxEWKB 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:22.041
+!MESSAGE executing callback sts4.classpath.iNcxEWKB SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:22.042
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:22.046
+!MESSAGE classpath=98 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:22.049
+!MESSAGE buffering callback sts4.classpath.iNcxEWKB bpro52 false 98
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:22.050
+!MESSAGE executing callback sts4.classpath.iNcxEWKB 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 13:57:22.098
+!MESSAGE executing callback sts4.classpath.iNcxEWKB SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 14:26:25.127
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 14:26:25.131
+!MESSAGE classpath=98 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 14:26:25.135
+!MESSAGE buffering callback sts4.classpath.iNcxEWKB bpro52 false 98
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 14:26:25.135
+!MESSAGE executing callback sts4.classpath.iNcxEWKB 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2023-01-27 14:26:25.258
+!MESSAGE executing callback sts4.classpath.iNcxEWKB SUCCESS [done]
