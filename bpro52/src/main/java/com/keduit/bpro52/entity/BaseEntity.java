@@ -15,13 +15,13 @@ import lombok.Getter;
 @MappedSuperclass
 @EntityListeners(value= {AuditingEntityListener.class})
 @Getter
-public abstract class BaseEntity {
-	
+abstract class BaseEntity {
+
 	@CreatedDate
 	@Column(name="regdate", updatable=false)
-	private LocalDateTime regdate;
+	protected LocalDateTime regDate;
 	
 	@LastModifiedDate
 	@Column(name="updatedate")
-	private LocalDateTime updatedate;
+	protected LocalDateTime updateDate;
 }

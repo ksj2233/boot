@@ -2,6 +2,7 @@ package com.keduit.bpro52.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,29 +17,28 @@ import lombok.ToString;
 
 @Entity
 @Table(name="board")
-@ToString(exclude = "writer")
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
+@ToString(exclude = "writer")
 public class Board extends BaseEntity{
-		//PK
-		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private Long bno;
-		
-		@Column(length=200, nullable=false)
-		private String title;
-		
-		@Column(length=2000, nullable=false)
-		private String content;
-		
-//		@Column(length=50, nullable=false)
-		@ManyToOne
-		private Member writer;
-		
-		public void change(String title, String content) {
-			this.title = title;
-			this.content = content;
-		}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long bno;
+
+    @Column(length = 500, nullable = false) //컬럼의 길이와 null허용여부
+    private String title;
+
+    @Column(length = 2000, nullable = false)
+    private String content;
+
+//    @Column(length = 50, nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)   // lazy 로딩으로 지정
+    private Member writer;
+
+    public void change(String title, String content){
+        this.title = title;
+        this.content = content;
+    }
 }

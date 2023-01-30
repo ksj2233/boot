@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="BoardServiceTests.testSearch" project="bpro51" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.keduit.bpro51.service.BoardServiceTests" time="0.267" displayname="BoardServiceTests" uniqueid="[engine:junit-jupiter]/[class:com.keduit.bpro51.service.BoardServiceTests]">
-    <testcase name="testSearch" classname="com.keduit.bpro51.service.BoardServiceTests" time="0.267" displayname="testSearch()" uniqueid="[engine:junit-jupiter]/[class:com.keduit.bpro51.service.BoardServiceTests]/[method:testSearch()]"/>
-  </testsuite>
-</testrun>

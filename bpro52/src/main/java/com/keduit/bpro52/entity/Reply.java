@@ -16,9 +16,9 @@ import lombok.ToString;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString(exclude = "board")
 @Getter
-public class Reply {
+@ToString(exclude="board")
+public class Reply extends BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,5 +28,5 @@ public class Reply {
 	
 	@ManyToOne
 	private Board board;
-	
+
 }

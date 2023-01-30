@@ -1,5 +1,0 @@
-package com.keduit.bpro01.repository;
-
-public interface MemoRepository {
-
-}
