@@ -103,4 +103,12 @@ public class BoardRepositoryTests {
 		Pageable pageable = PageRequest.of(0, 10, Sort.by("bno").descending());
 		Page<Object[]> result = boardRepository.searchPage("tcw", "1", pageable);
 	}
+	
+	@Test
+	public void testSearchPageSort() {
+		Pageable pageable = PageRequest.of(0, 10, Sort.by("bno").descending().and(Sort.by("title").ascending()));
+		
+		Page<Object[]> result = boardRepository.searchPage("tcw", "1", pageable);
+	}
+	
 }
