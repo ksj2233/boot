@@ -15,14 +15,14 @@ import lombok.ToString;
 
 @Entity
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
-@ToString(exclude = "movie")
+@ToString(exclude="movie")
 public class MovieImage {
-
+	
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long inum;
 	
 	private String uuid;
@@ -33,5 +33,6 @@ public class MovieImage {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Movie movie;
-	
+
+
 }

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Upload Test</title>
+</head>
+<body>
+	<input name="uploadFiles" type="file" multiple>
+	<button class="uploadBtn">Upload</button>
+	
+	<div class="uploadResult">
+	</div>
+	
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" 
+integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" 
+crossorigin="anonymous"></script>
+<script>
+	$('.uploadBtn').click(function(){
+		
+		var formData = new FormData();
+		var inputFile = $('input[type="file"]');
+		var files = inputFile[0].files;
+		
+		for(var i = 0 ; i < files.length; i++){
+			console.log(files[i]);
+			formData.append("uploadFiles", files[i]);
+		} // for문 종료
+		
+		$.ajax({
+			url:"/uploadAjax",
+			processData : false,
+			contentType : false,
+			data : formData,
+			type : "POST",
+			dataType : "json",
+			success : function(result){
+				console.log(result);
+				showUploadImages(result);
+			},
+			error : function(jqXHR, textStatus, errorThrown){
+				console.log(textStatus);
+			}
+		}); // .ajax 종료
+	});  // .uploadBtn 이벤트 종료
+function showUploadImages(arr){
+		console.log(arr);
+		
+		var divArea = $(".uploadResult");
+		var str = "";
+		
+		for(var i=0 ; i < arr.length; i++){ 	// 화면에 뿌림
+			str += "<div>";
+			str += "<img src='/display?fileName="+ arr[i].thumbnailURL + "'>"; 
+			str += "<button class='removeBtn' data-name='" + arr[i].imageURL + "'>삭제</button>";
+			str += "</div>";
+			
+		
+			//divArea.append("<img src='/display?fileName="+arr[i].imageURL+"'><br>")
+			//divArea.append("<img src='/display?fileName="+arr[i].thumbnailURL+"'>")
+		}
+		divArea.append(str);
+	}
+	
+	$(".uploadResult").on("click", ".removeBtn", function(e){
+		
+		var target = $(this);
+		var fileName = target.data("name");
+		var targetDiv = $(this).closest("div"); //가까운거 찾기
+		
+		console.log(fileName);
+		
+		$.post('/removeFile', {fileName:fileName}, function(result){
+			console.log("== removeFile ==" + result);
+			if(result === true){
+				targetDiv.remove();
+			}
+		});
+		
+	})
+	
+	
+</script>
+</body>
+</html>
