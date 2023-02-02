@@ -1,4 +1,4 @@
-package com.keduit.bpro51.dto;
+package com.keduit.bpro53.dto;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +15,8 @@ public class PageRequestDTO {
 	
 	private int page;
 	private int size;
+	private String type; 
+	private String keyword;
 	
 	public PageRequestDTO() {
 		this.page = 1;

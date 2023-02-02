@@ -70,7 +70,7 @@ function showUploadImages(arr){
 		console.log(fileName);
 		
 		$.post('/removeFile', {fileName:fileName}, function(result){
-			console.log("== removeFile ==" + result);
+			console.log("== .post == " + result);
 			if(result === true){
 				targetDiv.remove();
 			}
