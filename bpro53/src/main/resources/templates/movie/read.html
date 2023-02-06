@@ -20,9 +20,10 @@
 
 		<div class="uploadResult">
 			<ul>
-				<li th:each="movieImage: ${dto.imageDTOList}"><img
-					th:if="${movieImage.path != null}"
-					th:src="|\display?fileName=${movieImage.getThumbnailURL()}|">
+				<li th:each="movieImage: ${dto.imageDTOList}" 
+					th:data-file="${movieImage.getThumbnailURL()}">
+					<img th:if="${movieImage.path != null}"
+							th:src="|\display?fileName=${movieImage.getThumbnailURL()}|">
 				</li>
 			</ul>
 		</div>
@@ -127,11 +128,14 @@
 		</div>
 
 		<script th:src="@{/starrr.js}"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" integrity="sha512-ZfKn7az0YmtPUojZnRXO4CUdt3pn+ogBAyGbqGplrCIR5B/tQwPGtF2q29t+zQj6mC/20w4sSl0cF5F3r0HKSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"
+			integrity="sha512-ZfKn7az0YmtPUojZnRXO4CUdt3pn+ogBAyGbqGplrCIR5B/tQwPGtF2q29t+zQj6mC/20w4sSl0cF5F3r0HKSQ=="
+			crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link th:href="@{/css/starrr.css}" rel="stylesheet">
 		<script>
 			$(document).ready(function(e){
-				var grade =5;
+				var grade =3;
 				var mno = [[${dto.mno}]];
 				
 				$('.starrr').starrr({
@@ -208,7 +212,7 @@
 							
 							console.log("review list" + review);
 							
-							str += "<div class='card-body' data-reviewnum='" + review.reviewnum + "' data-mid='" + review.mid + "'>";
+							str += "<div class='card-body' data-reviewnum=" + review.reviewnum + " data-mid='" + review.mid + "'>";
 							str += "<h5 class='card-title'>" + review.text + "        <span>" + review.grade + "</span><div class='starrr'></div></h5>";
 							str += "<h6 class='card-subtitle mb-2 text-muted'>" + review.nickname + "</h6>";
 							str += "<p class='card-text' >" + formatTime(review.regDate)+"</p>";
@@ -230,6 +234,7 @@
 				//$(".reviewModal").modal("show");
 				
 				
+				
 				$(".reviewList").on("click",".card-body", function(){
 					
 					$(".saveBtn").hide();
@@ -237,7 +242,7 @@
 					
 					var targetReview = $(this);
 					
-					var reviewnum = targetReview.data("reviewnum");
+					reviewnum = targetReview.data("reviewnum");
 					
 					console.log("reviewnum : " + reviewnum);
 					
@@ -249,6 +254,58 @@
 					$(".reviewModal").modal('show');
 					
 				}); 
+				
+				 	$(".modifyBtn").on("click",function(){
+						
+						var data ={reviewnum:reviewnum, mno:mno, grade:grade, text:inputText.val(), mid:inputMid.val()};
+						
+						console.log("data : " + data);
+						
+						$.ajax({
+							url:"/reviews/"+mno+"/"+reviewnum,
+							type:"PUT",
+							data: JSON.stringify(data),
+							contentType:"application/json; charset=utf-8",
+							dataType: "text",
+							success: function(result){
+								console.log(".modifyBtn 클릭시 :"+result)
+								self.location.reload();
+							}
+						});
+						reviewModal.modal('hide');
+						
+					});
+				
+					$(".removeBtn").on("click", function(){
+						
+						var data = {reviewnum:reviewnum};
+						console.log("removeBtn 클릭시 : " + reviewnum);
+						
+						$.ajax({
+							url:"/reviews/"+mno+"/"+reviewnum,
+							type:"DELETE",
+							contentType:"application/json; charset=utf-8",
+							dataType:"text",
+							success: function(result){
+								console.log(".modifyBtn 클릭시 :"+result)
+								self.location.reload();
+							}
+						});
+						
+						reviewModal.modal("hide");
+					}) ;
+				
+					$(".uploadResult li").on("click",function(){
+						
+						var file = $(this).data("file");
+						
+						console.log("file : " + file);
+						
+						$(".imageModal .modal-body").html("<img style='width:100%'; src='/display?fileName=" + file + "&size=1' >");
+						
+						$(".imageModal").modal("show");
+					});
+				
 			});
 		</script>
 
